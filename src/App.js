@@ -3,15 +3,15 @@ import Navbar from './components/Navbar';
 const navbarItems = [
   {
     text: "Insurance",
-    url: "#",
+    url: "/insurance",
   },
   {
     text: "About Us",
-    url: "#",
+    url: "/about",
   },
   {
     text: "Claims Service",
-    url: "#",
+    url: "/claims",
   }
 ];
 

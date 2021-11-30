@@ -70,7 +70,7 @@ const Navbar = ({ items = [] }) => {
       <div className="flex max-w-6xl mx-auto px-4">
         <div className="mr-4">
           <a
-            href="#"
+            href="/"
             title="Home"
             className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-800"
           >
@@ -119,7 +119,7 @@ const Navbar = ({ items = [] }) => {
             <ul className="md:flex items-center md:space-x-4">
               <li>
                 <a
-                  href="#"
+                  href="/account"
                   className="block py-5 px-3 text-pink-600 hover:text-pink-700"
                 >
                   Log In
@@ -127,7 +127,7 @@ const Navbar = ({ items = [] }) => {
               </li>
               <li className="py-3">
                 <a
-                  href="#"
+                  href="/signup"
                   className="py-2 px-3 bg-pink-600 hover:bg-pink-700 text-gray-50 hover:text-gray-50 rounded transition duration-300"
                 >
                   Get Started
