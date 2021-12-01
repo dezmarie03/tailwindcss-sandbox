@@ -1,4 +1,4 @@
-import {
+import React, {
   useEffect,
   useRef,
   useState
@@ -46,7 +46,9 @@ const Navbar = ({ items = [] }) => {
 
   useEffect(() => {
     if (showMenu) {
-      menuWrapperRef.current.querySelector('a:first-of-type').focus();
+      if (menuWrapperRef) {
+        menuWrapperRef.current.querySelector('a:first-of-type').focus();
+      }
       document.addEventListener('click', handleOutsideClick);
     } else {
       document.removeEventListener('click', handleOutsideClick);
@@ -90,9 +92,9 @@ const Navbar = ({ items = [] }) => {
             aria-expanded={showMenu}
             aria-haspopup="true"
             type="button"
-            id="mobile-menu-toggle"
             aria-label="Toggle navigation visibility"
             className="md:hidden"
+            data-testid="navbar-menu-activator"
           >
             {showMenu ? closeIcon : barsIcon}
           </button>
@@ -102,6 +104,7 @@ const Navbar = ({ items = [] }) => {
               `${showMenu ? openClasses : closedClasses}
               md:flex flex-grow justify-between md:space-x-4`
             }
+            data-testid="navbar-menu-items-wrapper"
           >
             <ul className="md:flex items-center md:space-x-4">
               {
