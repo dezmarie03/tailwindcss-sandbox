@@ -12,7 +12,11 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
+    "cypress:open": "npx cypress open",
+    "cypress:run": "npx cypress run",
+    "test:e2e": "start-server-and-test start http://0.0.0.0:1234 cypress:open",
+    "test:ci": "start-server-and-test start http://0.0.0.0:1234 cypress:run",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -34,9 +38,51 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-react": "^7.16.0",
+    "@testing-library/cypress": "^8.0.2",
+    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^9",
+    "axe-core": "^4.3.5",
+    "babel-jest": "^27.4.2",
+    "cypress": "^9.1.0",
+    "cypress-axe": "^0.13.0",
+    "jest": "^27.4.3",
+    "jest-transform-css": "^3.0.0",
     "postcss": "^7",
+    "react-test-renderer": "^17.0.2",
+    "start-server-and-test": "^1.14.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "web-vitals": "^2.1.2"
+  },
+  "jest": {
+    "globals": {
+      "NODE_ENV": "test"
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "moduleNameMapper": {
+      "^/(.*)$": "<rootDir>/src/$1"
+    },
+    "modulePathIgnorePatterns": [
+      "cypress",
+      "public"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest-setup.js"
+    ],
+    "testEnvironment": "jest-environment-jsdom",
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest",
+      ".+\\.(css|styl|less|sass|scss)$": "jest-transform-css"
+    }
   }
 }
